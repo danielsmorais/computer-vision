@@ -13,7 +13,7 @@ int main(int argc, char **argv)
                  1,  -4,  1,
                  0,  1,  0};
 
-    String path = "original.png";
+    String path = "imagensComRuido/a1.jpg";
 
     image = imread(path, CV_LOAD_IMAGE_GRAYSCALE);
     if (!image.data)
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
         }
     }
 
-    path = "imagensLaplaciano/laplace.jpg";
+    path = "imagensLaplaciano/a1.jpg";
     imwrite(path, ilaplace);
     
     return 0;
