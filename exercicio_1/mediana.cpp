@@ -7,18 +7,19 @@ using namespace std;
 void swap(int*, int*);
 void bubbleSort(int*, int);
 
-    int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     int ncoluna, nlinha;
     ncoluna = 1280;
     nlinha = 1057;
     Mat image, imedia(nlinha,ncoluna, CV_8UC1);
+    int vv[9];
 
     String path;
     
     for (int k = 0; k < 9; k++)
     {
-        path = "imagensComRuido_media/a" + to_string(k + 1) + ".jpg";
+        path = "imagensComRuido/a" + to_string(k + 1) + ".jpg";
 
         image = imread(path, CV_LOAD_IMAGE_GRAYSCALE);
         if (!image.data)
@@ -31,19 +32,25 @@ void bubbleSort(int*, int);
         {
             for (int j = 1; j < ncoluna-1; j++)
             {
-                imedia.at<uchar>(i, j) = image.at<uchar>(i - 1, j - 1) / 9 + image.at<uchar>(i - 1, j) / 9 + image.at<uchar>(i - 1, j + 1) / 9 +
-                                         image.at<uchar>(i, j - 1) / 9 + image.at<uchar>(i, j) / 9 + image.at<uchar>(i, j + 1) / 9 +
-                                         image.at<uchar>(i + 1, j - 1) / 9 + image.at<uchar>(i + 1, j) / 9 + image.at<uchar>(i + 1, j + 1) / 9;
+                vv[0] = image.at<uchar>(i - 1, j - 1);
+                vv[1] = image.at<uchar>(i - 1, j);
+                vv[2] = image.at<uchar>(i - 1, j + 1);
+                vv[3] = image.at<uchar>(i, j - 1);
+                vv[4] = image.at<uchar>(i, j);
+                vv[5] = image.at<uchar>(i, j + 1);
+                vv[6] = image.at<uchar>(i + 1, j - 1);
+                vv[7] = image.at<uchar>(i + 1, j);
+                vv[8] = image.at<uchar>(i + 1, j + 1);
+
+                bubbleSort(vv,9);    
+
+                imedia.at<uchar>(i, j) = vv[4]; // mediana
             }            
         }
 
-        path = "imagensSemRuido/a" + to_string(k + 1) + ".jpg";
+        path = "imagensSemRuido_mediana/a" + to_string(k + 1) + ".jpg";
         imwrite(path, imedia);
     }
-
-
-    imshow("image", imedia);
-    waitKey();
     return 0;
 }
 
@@ -64,6 +71,3 @@ void bubbleSort(int *v, int n)
             swap(&v[i], &v[i + 1]);
     bubbleSort(v, n - 1);
 }
-
-//RESPOSTA
-// Como a imagem é composta por pixels de 8 bits, por ser tom de cinza a imagem poderá ter 256 diferentes tons. Retirando a cor de fundo (preta), temos 255 tons de cinza. Logo, se tivermos mais de 255 objetos não será possível rotulá-los na imagem. O interessante seria especificar um tom de cinza diferente de 0 e 255 e rotular todos os objetos. Com isso, não importa a quantidade de objetos.
