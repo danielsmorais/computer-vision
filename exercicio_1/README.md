@@ -5,3 +5,8 @@ Descrição:
 
 2) Aplicar o filtro Laplaciano e utilizar o resultado para aguçar uma imagem
 
+
+Comentários:
+
+- O ruído nas imagens é do tipo "sal e pimenta" e uma forma de removê-lo é utilizando o filtro da mediana.
+
