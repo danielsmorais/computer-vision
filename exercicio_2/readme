@@ -1,0 +1,14 @@
+INSTALAÇÃO DO OpenCV 4.x e Python3
+
+Install PIP3
+$ sudo apt update
+$ sudo apt install python3-pip
+
+To install OpenCV Via PIP give the following command
+$ pip3 install opencv-python
+
+Test OpenCV Installation
+$ python3
+ import cv2
+ print(cv2.__version__)
+'4.0.0'
