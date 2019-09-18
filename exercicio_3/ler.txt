@@ -1,0 +1,5 @@
+https://github.com/coldmanck/Image-Filtering-and-Hybrid-Images
+
+http://ros-developer.com/2017/05/16/creating-hybrid-image-with-matlab/
+
+https://sites.google.com/site/computervisionadinastoica/
