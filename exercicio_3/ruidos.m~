@@ -1,0 +1,18 @@
+%ATIVIDADE 3
+%DANIEL MORAIS
+%Verificar ruídos nas imagens
+
+image = imread('cristoRedentor/cristo.jpg');
+[linha, coluna] = size(image);
+h = zeros(256,1);
+
+for i=1:linha
+    for j=1:coluna
+        aux = image(i,j);
+        h(aux+1) = h(aux+1) + 1;
+    end
+end
+
+%imshow(image);
+
+bar(1:256,h);
