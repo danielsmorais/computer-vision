@@ -61,9 +61,58 @@
 % imwrite(imagefinal,'semruidoGaussianoSalPimenta.jpg');
 
 
+% ELIMINAR RUIDO SAL
+
+image = imread('ibirapuera/ruidoSal.jpg');
+[linha, coluna] = size(image);
+
+imagesal = zeros(linha,coluna,'uint8');
+vv = zeros(9,1);
+for i=2:linha-1
+    for j=2:coluna-1
+        vv(1,1) = image(i - 1, j - 1);
+        vv(2,1) = image(i - 1, j);        
+        vv(3,1) = image(i - 1, j + 1);
+        vv(4,1) = image(i, j - 1);
+        vv(5,1) = image(i, j);
+        vv(6,1) = image(i, j + 1);
+        vv(7,1) = image(i + 1, j - 1);
+        vv(8,1) = image(i + 1, j);
+        vv(9,1) = image(i + 1, j + 1);
+        
+        imagesal(i,j) = min(vv);
+    end
+end
+imwrite(imagesal,'semruidoSal.jpg');
+
+
+% ELIMINAR RUIDO PIMENTA
+
+image = imread('ibirapuera/ruidoPimenta.jpg');
+[linha, coluna] = size(image);
+
+imagepimenta = zeros(linha,coluna,'uint8');
+vv = zeros(9,1);
+for i=2:linha-1
+    for j=2:coluna-1
+        vv(1,1) = image(i - 1, j - 1);
+        vv(2,1) = image(i - 1, j);        
+        vv(3,1) = image(i - 1, j + 1);
+        vv(4,1) = image(i, j - 1);
+        vv(5,1) = image(i, j);
+        vv(6,1) = image(i, j + 1);
+        vv(7,1) = image(i + 1, j - 1);
+        vv(8,1) = image(i + 1, j);
+        vv(9,1) = image(i + 1, j + 1);
+        
+        imagepimenta(i,j) = max(vv);
+    end
+end
+imwrite(imagepimenta,'semruidoPimenta.jpg');
+
 
 
 
 
 figure(1);
-imshow(imagefinal);
+imshow(imagepimenta);
