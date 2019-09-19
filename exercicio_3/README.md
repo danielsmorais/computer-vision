@@ -2,7 +2,7 @@
 
 ### 1) Identificar o tipo de ruído em cada uma das imagens (as do Cristo Redentor) através da análise do histograma
 
-#### Imagem cristo
+#### Imagem cristo : histograma equalizado.
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/cristoRedentor/cristo.jpg" height="300"  title="Imagem real">
@@ -11,7 +11,7 @@
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/histograma/h.png" height="300" title="Histograma">     </span>
 </p>
 
-#### Imagem cristo 0
+#### Imagem cristo 0 : ruído sal e pimenta.
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/cristoRedentor/ruido0.jpg" height="300"  title="Imagem real">
@@ -20,7 +20,7 @@
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/histograma/h0.png" height="300" title="Histograma">     </span>
 </p>
 
-#### Imagem cristo 1
+#### Imagem cristo 1 : ruído sal.
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/cristoRedentor/ruido1.jpg" height="300"  title="Imagem real">
@@ -29,7 +29,7 @@
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/histograma/h1.png" height="300" title="Histograma">     </span>
 </p>
 
-#### Imagem cristo 2
+#### Imagem cristo 2 : ruído pimenta.
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/cristoRedentor/ruido2.jpg" height="300"  title="Imagem real">
