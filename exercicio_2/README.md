@@ -3,8 +3,8 @@
 
 #### Imagens originais
 <p align="center">
-        <span><img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_2/merkel.jpg" height="300"  title="Imagem real"></span>
-		<span><img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_2/trump.jpg" height="300" title="Imagem média"></span>
+        <span><img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_2/merkel.jpg" height="250"  title="Imagem real"></span>
+		<span><img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_2/trump.jpg" height="250" title="Imagem média"></span>
 </p>
 
 #### Imagens híbridas
