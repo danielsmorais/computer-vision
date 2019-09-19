@@ -1,12 +1,22 @@
-Nome da Tarefa: Exercício Média/Mediana e Filtro de Aguçamento
-Descrição:
+#Nome da Tarefa: Exercício Média/Mediana e Filtro de Aguçamento
 
-1) Aplicar a média/mediana para reduzir o ruído presente nas imagens disponibilizadas no SIGAA
+### 1) Aplicar a média/mediana para reduzir o ruído presente nas imagens disponibilizadas no SIGAA
 
-2) Aplicar o filtro Laplaciano e utilizar o resultado para aguçar uma imagem
+#### Média
+
+<p align="center">
+    <span>
+        <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_1/imagensComRuido/a1.jpg" height="300"  title="Imagem real">
+    </span>
+    <span>
+        <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_1/imagemSemRuido_media/a.jpg" height="300" title="Imagem média">
+    </span>
+</p>
 
 
-Comentários:
 
-- O ruído nas imagens é do tipo "sal e pimenta" e uma forma de removê-lo é utilizando o filtro da mediana.
+### 2) Aplicar o filtro Laplaciano e utilizar o resultado para aguçar uma imagem
+
+
+
 
