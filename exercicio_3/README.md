@@ -67,7 +67,7 @@
   </span>
 </p>
 
-#### Imagem com ruido gaussiano
+#### Imagem com ruido gaussiano (filtro de média)
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoGaussiano.jpg" height="200"  title="Imagem real">
@@ -77,7 +77,7 @@
   </span>
 </p>
 
-#### Imagem com ruido gaussiano sal e pimenta
+#### Imagem com ruido gaussiano sal e pimenta (filtro de mediana e média)
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoGaussianoSalPimenta.jpg" height="200"  title="Imagem real">
@@ -87,7 +87,7 @@
   </span>
 </p>
 
-#### Imagem com ruido pimenta
+#### Imagem com ruido pimenta (filtro de máximo)
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoPimenta.jpg" height="200"  title="Imagem real">
@@ -97,7 +97,7 @@
   </span>
 </p>
 
-#### Imagem com ruido sal
+#### Imagem com ruido sal (filtro de mínimo)
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoSal.jpg" height="200"  title="Imagem real">
@@ -108,7 +108,7 @@
 </p>
 
 
-#### Imagem com ruido sal e pimenta
+#### Imagem com ruido sal e pimenta (filtro mediana)
 <p align="center">
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoSalPimenta.jpg" height="200"  title="Imagem real">
