@@ -10,7 +10,7 @@
 % imagemedia = imfilter(image, fmedia);
 % imwrite(imagemedia,'semruidoGaussiano.jpg');
 
-% ELIMINAR RUIDO SAL E PIMENTA
+%ELIMINAR RUIDO SAL E PIMENTA
 % image = imread('ibirapuera/ruidoSalPimenta.jpg');
 % [linha, coluna] = size(image);
 % imagemediana = zeros(linha,coluna,'uint8');
@@ -33,34 +33,32 @@
 % 
 % imwrite(imagemediana,'semruidoSalPimenta.jpg');
 
-% ELIMINAR RUIDO GAUSSIANO E SAL E PIMENTA
-% image = imread('ibirapuera/ruidoGaussianoSalPimenta.jpg');
-% [linha, coluna] = size(image);
-% 
-% imagemedian = zeros(linha,coluna,'uint8');
-% vv = zeros(9,1);
-% for i=2:linha-1
-%     for j=2:coluna-1
-%         vv(1,1) = image(i - 1, j - 1);
-%         vv(2,1) = image(i - 1, j);        
-%         vv(3,1) = image(i - 1, j + 1);
-%         vv(4,1) = image(i, j - 1);
-%         vv(5,1) = image(i, j);
-%         vv(6,1) = image(i, j + 1);
-%         vv(7,1) = image(i + 1, j - 1);
-%         vv(8,1) = image(i + 1, j);
-%         vv(9,1) = image(i + 1, j + 1);
-%         
-%         imagemedian(i,j) = median(vv);
-%     end
-% end
-% 
-% fmedia = ones(3,3)*(1/9);
-% imagefinal = zeros(linha,coluna);
-% imagefinal = imfilter(imagemedian, fmedia);
-% imwrite(imagefinal,'semruidoGaussianoSalPimenta.jpg');
+%ELIMINAR RUIDO GAUSSIANO E SAL E PIMENTA
+image = imread('ibirapuera/ruidoGaussianoSalPimenta.jpg');
+[linha, coluna] = size(image);
 
+imagemedian = zeros(linha,coluna,'uint8');
+vv = zeros(9,1);
+for i=2:linha-1
+    for j=2:coluna-1
+        vv(1,1) = image(i - 1, j - 1);
+        vv(2,1) = image(i - 1, j);        
+        vv(3,1) = image(i - 1, j + 1);
+        vv(4,1) = image(i, j - 1);
+        vv(5,1) = image(i, j);
+        vv(6,1) = image(i, j + 1);
+        vv(7,1) = image(i + 1, j - 1);
+        vv(8,1) = image(i + 1, j);
+        vv(9,1) = image(i + 1, j + 1);
+        
+        imagemedian(i,j) = median(vv);
+    end
+end
 
+fmedia = ones(3,3)*(1/9);
+imagefinal = zeros(linha,coluna);
+imagefinal = imfilter(imagemedian, fmedia);
+imwrite(imagefinal,'semruidoGaussianoSalPimenta.jpg');
 
 
 
