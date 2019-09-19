@@ -65,7 +65,55 @@
   <span>
     <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ibirapuera.jpg" height="200"  title="Imagem real">
   </span>
+</p>
+
+#### Imagem com ruido gaussiano
+<p align="center">
+  <span>
+    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoGaussiano.jpg" height="200"  title="Imagem real">
+  </span>
     <span>
-  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoGaussiano.jpg" height="200"  title="Imagem real">
+  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/semruidoGaussiano.jpg" height="200"  title="Imagem real">
+  </span>
+</p>
+
+#### Imagem com ruido gaussiano sal e pimenta
+<p align="center">
+  <span>
+    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoGaussianoSalPimenta.jpg" height="200"  title="Imagem real">
+  </span>
+    <span>
+  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/semruidoGaussianoSalPimenta.jpg" height="200"  title="Imagem real">
+  </span>
+</p>
+
+#### Imagem com ruido pimenta
+<p align="center">
+  <span>
+    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoPimenta.jpg" height="200"  title="Imagem real">
+  </span>
+    <span>
+  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/semruidoPimenta.jpg" height="200"  title="Imagem real">
+  </span>
+</p>
+
+#### Imagem com ruido sal
+<p align="center">
+  <span>
+    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoSal.jpg" height="200"  title="Imagem real">
+  </span>
+    <span>
+  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/semruidoSal.jpg" height="200"  title="Imagem real">
+  </span>
+</p>
+
+
+#### Imagem com ruido sal e pimenta
+<p align="center">
+  <span>
+    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoSalPimenta.jpg" height="200"  title="Imagem real">
+  </span>
+    <span>
+  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/semruidoSalPimenta.jpg" height="200"  title="Imagem real">
   </span>
 </p>
