@@ -59,3 +59,10 @@
 
 
 ### 2) Reduzir o ruído nas imagens do Ibirapuera
+
+#### Imagem Ibirapuera
+<p align="center">
+  <span>
+    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ibirapuera.jpg" height="300"  title="Imagem real">
+  </span>
+</p>
