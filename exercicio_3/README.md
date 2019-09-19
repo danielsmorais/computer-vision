@@ -63,9 +63,9 @@
 #### Imagem Ibirapuera
 <p align="center">
   <span>
-    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ibirapuera.jpg" width="400"  title="Imagem real">
+    <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ibirapuera.jpg" height="200"  title="Imagem real">
   </span>
     <span>
-  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ibirapuera.jpg" width="400"  title="Imagem real">
+  <img src="https://github.com/danielsmorais/computer-vision/blob/master/exercicio_3/ibirapuera/ruidoGaussiano.jpg" height="200"  title="Imagem real">
   </span>
 </p>
