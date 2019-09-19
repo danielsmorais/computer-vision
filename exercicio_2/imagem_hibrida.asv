@@ -3,9 +3,6 @@
 %Implementar e gerar uma imagem hÃ­brida conforme o artigo https://dl.acm.org/citation.cfm?id=1141919
 
 
-% H: hybrid image; I1: image 1; I2: image 2; G1: low-pass filter; (1?G2): high-pass filter
-%H = I1*G1 + I2*(1-G2)
-
 % LEITURA DE IMAGEM
 image1 = im2double(rgb2gray(imread('merkel.jpg')));
 image2 = im2double(rgb2gray(imread('trump.jpg')));
@@ -25,18 +22,20 @@ for u = 1:m
      for v = 1:n
          D = sqrt((u-m/2)^2+(v-n/2)^2);     % DISTÂNCIA EUCLIDIANA        
          if D > D0
-             G1 = 1;
-             G2 = 0;
-         else
-             G1 = 0;
-             G2 = 1;
+             G1 = 1;    %G1 FILTRO PASSA-ALTA
+             G2 = 0;    %G2 FILTRO PASSA-BAIXA
+         else             
+             G1 = 0;    
+             G2 = 1;    
          end
+         %CONVOLUÇÃO
          H1(u,v) = G1*I1(u,v); 
          H2(u,v) = G2*I2(u,v);
      end
 end
 
-H1inv = real(ifft2(ifftshift(H1)));
+% CONVERTE DO DOMÍNIO DA FREQUENCIA PARA O ESPACIAL
+H1inv = real(ifft2(ifftshift(H1)));         
 H2inv = real(ifft2(ifftshift(H2)));
 
 H = H1inv + H2inv;
