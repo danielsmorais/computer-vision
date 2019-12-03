@@ -31,25 +31,20 @@ while(cap.isOpened()):
 
 
     # find contours in the thresholded image
-    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-    
-
-    # loop over the contours
-    for c in cnts:
-      # compute the center of the contour
+    # find contours in the binary image
+    img, contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+    for c in contours:
+      # calculate moments for each contour
       M = cv2.moments(c)
+    
+      # calculate x,y coordinate of center
       cX = int(M["m10"] / M["m00"])
       cY = int(M["m01"] / M["m00"])
+      cv2.circle(img, (cX, cY), 5, (255, 255, 255), -1)
+      cv2.putText(img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
     
-      # draw the contour and center of the shape on the image
-      cv2.drawContours(image, [c], -1, (0, 255, 0), 2)
-      cv2.circle(image, (cX, cY), 7, (255, 255, 255), -1)
-      cv2.putText(image, "center", (cX - 20, cY - 20),
-        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-    
-      # show the image
-      cv2.imshow("Image", image)
-
+      # display the image
+      cv2.imshow("Image", img)
 
 
     cv2.imshow('frame',frame)
