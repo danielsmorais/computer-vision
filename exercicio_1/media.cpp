@@ -11,6 +11,8 @@ int main(int argc, char **argv)
     nlinha = 1057;
     Mat image, imedia(nlinha,ncoluna, CV_8UC1);
 
+    vector<Mat> all_images;
+
     String path;
     
     for (int k = 0; k < 9; k++)
@@ -24,19 +26,26 @@ int main(int argc, char **argv)
             return (-1);
         }
 
-        for (int i = 1; i < nlinha-1; i++)
-        {
-            for (int j = 1; j < ncoluna-1; j++)
-            {
-                imedia.at<uchar>(i, j) = image.at<uchar>(i - 1, j - 1) / 9 + image.at<uchar>(i - 1, j) / 9 + image.at<uchar>(i - 1, j + 1) / 9 +
-                                         image.at<uchar>(i, j - 1) / 9 + image.at<uchar>(i, j) / 9 + image.at<uchar>(i, j + 1) / 9 +
-                                         image.at<uchar>(i + 1, j - 1) / 9 + image.at<uchar>(i + 1, j) / 9 + image.at<uchar>(i + 1, j + 1) / 9;
-            }            
-        }
-
-        path = "imagensSemRuido_media/a" + to_string(k + 1) + ".jpg";
-        imwrite(path, imedia);
+        all_images.push_back(image);
     }
+
+    for (int i = 0; i < nlinha; i++)
+    {
+        for (int j = 0; j < ncoluna; j++)
+        {
+            int aux=0;
+
+            for (size_t k = 0; k < 9; k++)
+            {
+                aux = aux + all_images[k].at<uchar>(i, j);
+            }            
+
+            imedia.at<uchar>(i, j) = aux/9;
+        }
+    }
+
+    path = "imagemSemRuido_media/a.jpg";
+    imwrite(path, imedia);
 
     return 0;
 }

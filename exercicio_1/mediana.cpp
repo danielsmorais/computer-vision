@@ -4,8 +4,8 @@
 using namespace cv;
 using namespace std;
 
-void swap(int*, int*);
-void bubbleSort(int*, int);
+void swap(int *, int *);
+void bubbleSort(int *, int);
 
 int main(int argc, char **argv)
 {
@@ -13,6 +13,7 @@ int main(int argc, char **argv)
     ncoluna = 1280;
     nlinha = 1057;
     Mat image, imedia(nlinha,ncoluna, CV_8UC1);
+    vector<Mat> all_images;
     int vv[9];
 
     String path;
@@ -28,29 +29,28 @@ int main(int argc, char **argv)
             return (-1);
         }
 
-        for (int i = 1; i < nlinha-1; i++)
-        {
-            for (int j = 1; j < ncoluna-1; j++)
-            {
-                vv[0] = image.at<uchar>(i - 1, j - 1);
-                vv[1] = image.at<uchar>(i - 1, j);
-                vv[2] = image.at<uchar>(i - 1, j + 1);
-                vv[3] = image.at<uchar>(i, j - 1);
-                vv[4] = image.at<uchar>(i, j);
-                vv[5] = image.at<uchar>(i, j + 1);
-                vv[6] = image.at<uchar>(i + 1, j - 1);
-                vv[7] = image.at<uchar>(i + 1, j);
-                vv[8] = image.at<uchar>(i + 1, j + 1);
-
-                bubbleSort(vv,9);    
-
-                imedia.at<uchar>(i, j) = vv[4]; // mediana
-            }            
-        }
-
-        path = "imagensSemRuido_mediana/a" + to_string(k + 1) + ".jpg";
-        imwrite(path, imedia);
+        all_images.push_back(image);
     }
+
+    for (int i = 0; i < nlinha; i++)
+    {
+        for (int j = 0; j < ncoluna; j++)
+        {
+
+            for (size_t k = 0; k < 9; k++)
+            {
+                vv[k] = all_images[k].at<uchar>(i, j);
+            }
+
+            bubbleSort(vv, 9);
+
+            imedia.at<uchar>(i, j) = vv[4]; // mediana
+        }
+    }
+
+    path = "imagemSemRuido_mediana/a.jpg";
+    imwrite(path, imedia);
+
     return 0;
 }
 
