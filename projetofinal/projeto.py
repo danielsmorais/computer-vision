@@ -1,21 +1,11 @@
 import cv2
 import numpy as np
-
-def nothing(x):
-    pass
+import argparse
 
 
 cv2.namedWindow('result')
 
-# Starting with 100's to prevent error while masking
-h,s,v = 100,100,100
 
-# Creating track bar
-cv2.createTrackbar('h', 'result',0,179,nothing)
-cv2.createTrackbar('s', 'result',0,255,nothing)
-cv2.createTrackbar('v', 'result',0,255,nothing)
-
- 
 cap = cv2.VideoCapture('video.mp4')
   
 # Read until video is completed
@@ -29,11 +19,6 @@ while(cap.isOpened()):
     #conversao
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # get info from track bar and appy to result
-    h = cv2.getTrackbarPos('h','result')
-    s = cv2.getTrackbarPos('s','result')
-    v = cv2.getTrackbarPos('v','result')
-
     #definicao do range
     lower_blue = np.array([0, 49, 190])
     upper_blue = np.array([65, 255, 255])
@@ -43,6 +28,29 @@ while(cap.isOpened()):
 
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame,frame, mask=mask)
+
+
+    # find contours in the thresholded image
+    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    
+
+    # loop over the contours
+    for c in cnts:
+      # compute the center of the contour
+      M = cv2.moments(c)
+      cX = int(M["m10"] / M["m00"])
+      cY = int(M["m01"] / M["m00"])
+    
+      # draw the contour and center of the shape on the image
+      cv2.drawContours(image, [c], -1, (0, 255, 0), 2)
+      cv2.circle(image, (cX, cY), 7, (255, 255, 255), -1)
+      cv2.putText(image, "center", (cX - 20, cY - 20),
+        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+    
+      # show the image
+      cv2.imshow("Image", image)
+
+
 
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
