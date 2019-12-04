@@ -20,12 +20,14 @@ cv2.createTrackbar('s2', 'result',0,255,nothing)
 cv2.createTrackbar('v2', 'result',0,255,nothing)
 
  
-cap = cv2.VideoCapture('video.mp4')
+# cap = cv2.VideoCapture('video.mp4')
+# ret, frame = cap.read()
 
-#while(!cap.isOpened())
+frame = cv2.imread('foto.jpg')
 
-ret, frame = cap.read()
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+ret = True
+
   
 # Read until video is completed
 while(True):

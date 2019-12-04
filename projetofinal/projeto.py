@@ -1,12 +1,12 @@
 import cv2
 import numpy as np
+#import matplotlib.pyplot as plt
 import argparse
 
 
-cv2.namedWindow('result')
-
-
 cap = cv2.VideoCapture('video.mp4')
+
+#f= open("dados.txt","w+")
   
 # Read until video is completed
 while(cap.isOpened()):
@@ -20,7 +20,8 @@ while(cap.isOpened()):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     #definicao do range
-    lower_blue = np.array([0, 49, 190])
+    #lower_blue = np.array([0, 49, 190])
+    lower_blue = np.array([0, 93, 126])
     upper_blue = np.array([65, 255, 255])
 
     # Threshold the HSV image to get only blue colors
@@ -29,28 +30,30 @@ while(cap.isOpened()):
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame,frame, mask=mask)
 
-
     # find contours in the thresholded image
     # find contours in the binary image
+
     img, contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-    for c in contours:
-      # calculate moments for each contour
-      M = cv2.moments(c)
+    c = max(contours, key = cv2.contourArea)
+    M = cv2.moments(c)
     
-      # calculate x,y coordinate of center
+    # calculate x,y coordinate of center
+    if M["m00"] != 0:
       cX = int(M["m10"] / M["m00"])
       cY = int(M["m01"] / M["m00"])
-      cv2.circle(img, (cX, cY), 5, (255, 255, 255), -1)
-      cv2.putText(img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+    else:
+      cX, cY = 0, 0
+
+    text = "("+str(cX)+","+str(cY)+")"
+    cv2.putText(frame, text, (30, 450),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+    cv2.circle(frame, (cX, cY), 4, (255, 0, 0), -1)
+  
+    # display the image
     
-      # display the image
-      cv2.imshow("Image", img)
-
-
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
     cv2.imshow('res',res)
-
+    #f.write(str(cX)+" "+str(cY)+"\n")
 
     #---------------------------------------------------------------
     # Display the resulting frame
@@ -63,7 +66,7 @@ while(cap.isOpened()):
   # Break the loop
   else: 
     break
- 
+#f.close() 
 # When everything done, release the video capture object
 cap.release()
  
