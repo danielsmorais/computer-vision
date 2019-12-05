@@ -1,14 +1,14 @@
-opengl('save','hardware')
+%opengl('save','hardware')
 
 %Filtra os dados do GPS 1D
 % Armazena a pasta atual
 OLDDIR=pwd();
 % Pasta de leitura dos arquivos
-DATADIR='/home/daniel/Git/computer-vision/projetofinal';
+%DATADIR='/home/daniel/Git/computer-vision/projetofinal';
 %DATADIR='C:\Users\Daniel Morais\Documents\git\system-identification\Projeto_2';
-if (~chdir(DATADIR))
-    error('Folder does not exist');
-end
+%if (~chdir(DATADIR))
+%    error('Folder does not exist');
+%end
 
 % Arquivo com as medicoes
 FILE='dados.txt';
@@ -76,7 +76,9 @@ end
 
 % Percurso xy
 figure(1)
-plot(filtr(:,1), filtr(:,2), 'b', data(:,1), data(:,2), '.r');
+plot(filtr(:,1), filtr(:,2), '.b', data(:,1), data(:,2), '.r');
+
+%plot(data(:,1), data(:,2), '.b', data(:,3), data(:,4), '-r')
 
 % Evolucao de x
 % plot(real(:,1), real(:,2), 'kx', data(:,1), filtr(:,1), '-b', data(:,1), data(:,2), 'ro');
