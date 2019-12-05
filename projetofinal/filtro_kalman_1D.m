@@ -76,7 +76,7 @@ end
 
 % Percurso xy
 figure(1)
-plot(filtr(:,1), filtr(:,2), '.b', data(:,1), data(:,2), '.r');
+plot(filtr(:,1), filtr(:,2), '-b', data(:,1), data(:,2), '-r');
 
 %plot(data(:,1), data(:,2), '.b', data(:,3), data(:,4), '-r')
 

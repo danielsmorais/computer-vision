@@ -10,10 +10,10 @@ h1,s1,v1 = 100,100,100
 h2,s2,v2 = 100,100,100
 
 # Criacao do track bar
-cv2.createTrackbar('h1', 'result',0,179,nothing)
+cv2.createTrackbar('h1', 'result',0,255,nothing)
 cv2.createTrackbar('s1', 'result',0,255,nothing)
 cv2.createTrackbar('v1', 'result',0,255,nothing)
-cv2.createTrackbar('h2', 'result',0,179,nothing)
+cv2.createTrackbar('h2', 'result',0,255,nothing)
 cv2.createTrackbar('s2', 'result',0,255,nothing)
 cv2.createTrackbar('v2', 'result',0,255,nothing)
 

@@ -59,7 +59,7 @@ while(cap.isOpened()):
     res = cv2.bitwise_and(frame,frame, mask=mask)
 
     # Calcula os contornos para calcular os momentos
-    _, contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     c = max(contours, key = cv2.contourArea)
     M = cv2.moments(c)
     
